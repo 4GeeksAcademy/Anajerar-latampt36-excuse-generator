@@ -4,7 +4,11 @@ import "./style.css";
 
 window.onload = function() {
   //write your code here
-  let genExcuse = "";
+  randomExcuse();
+};
+
+function randomExcuse() {
+  let generatedExcuse = "";
   const excuse = {
     who: ["The dog", "My grandma", "The mailman", "My bird"],
     action: ["ate", "peed", "crushed", "broke"],
@@ -18,8 +22,9 @@ window.onload = function() {
     ]
   };
 
-  for (let X in excuse)
-    genExcuse += excuse[X][Math.floor(Math.random() * excuse[X].length)] + " ";
-
-  document.getElementById("JSExcuse").innerHTML = genExcuse;
-};
+  for (let selector in excuse) {
+    let randomNumber = Math.floor(Math.random() * excuse[selector].length);
+    generatedExcuse += excuse[selector][randomNumber] + " ";
+  }
+  document.getElementById("JSExcuse").innerHTML = generatedExcuse;
+}
